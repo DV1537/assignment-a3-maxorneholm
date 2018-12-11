@@ -3,7 +3,7 @@
 #include "Shape.h"
 
 class Polygon : public Shape{
-private:
+protected:
     std::string type = "Polygon";
     float area = 0;
     float circum;
@@ -25,7 +25,9 @@ public:
     bool isConvex();
     void operator=(const Polygon& a);
     void operator=(const Shape& a);
-    void operator+(const Shape& a);
+    Polygon operator+(const Polygon& a);
+    Polygon operator+(const Point& a);
+    friend std::ostream& operator<<(std::ostream& out, const Polygon& a);
     ~Polygon();
 };
 #endif

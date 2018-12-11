@@ -107,8 +107,73 @@ void Polygon::operator=(const Shape& a){
     std::cout << "\nNot possible with this shape.";
 }
 
-void Polygon::operator+(const Shape& a){
+Polygon Polygon::operator+(const Point& a){
+    coordCounter += 2;
+    float* newXcoords = new float[coordCounter/2];
+    float* newYcoords = new float[coordCounter/2];
+    float* newCoords = new float[coordCounter];
 
+
+    //stoppa in gamla värden i nya arrayen.
+    for(int i = 0; i < (coordCounter/2)-1; i++){
+        newXcoords[i] = xCoords[i];
+        newYcoords[i] = yCoords[i];
+    }
+    newXcoords[(coordCounter/2)-1] = a.xCoords[0];
+    newYcoords[(coordCounter/2)-1] = a.yCoords[0];
+
+    int k = 1;
+    int l = 0;
+    for(int i = 0; i < coordCounter/2; i++){
+        newCoords[l] = newXcoords[i];
+        newCoords[k] = newYcoords[i];
+        k+=2;
+        l+=2;
+    }
+
+    Polygon nyPoly(newCoords, coordCounter);
+    return nyPoly;
+}
+
+
+Polygon Polygon::operator+(const Polygon& a){
+
+    float* newXcoords = new float[(a.coordCounter/2) + (coordCounter/2)];
+    float* newYcoords = new float[(a.coordCounter/2) + (coordCounter/2)];
+    float* newCoords = new float[a.coordCounter + coordCounter];
+
+    int n = (a.coordCounter/2) + (coordCounter/2);
+
+    int nr = coordCounter-a.coordCounter;
+
+    //stoppa in gamla värden i nya arrayen.
+    for(int i = 0; i < n; i++){
+        newXcoords[i] = xCoords[i];
+        newYcoords[i] = yCoords[i];
+    }
+
+    for(int i = 0; i < n/2; i++){
+        newXcoords[n/2+i] = a.xCoords[i];
+        newYcoords[n/2+i] = a.yCoords[i];
+    }
+
+    int k = 1;
+    int l = 0;
+    for(int i = 0; i < n; i++){
+        newCoords[l] = newXcoords[i];
+        newCoords[k] = newYcoords[i];
+        k+=2;
+        l+=2;
+    }
+
+    coordCounter += (a.coordCounter/2) + (coordCounter/2);
+    Polygon nyPoly(newCoords, coordCounter);
+    return nyPoly;
+}
+
+std::ostream& operator<<(std::ostream& out, const Polygon& a){
+    out << '\n' << a.xCoords[0] << " " << *nyPoly.xCoords[0];
+    return out;
 }
 
 Polygon::~Polygon(){

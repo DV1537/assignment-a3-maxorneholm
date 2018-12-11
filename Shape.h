@@ -9,12 +9,13 @@ protected:
     std::string type;
     float area = 10;
     float circum;
-    //Shape* a;
+    Shape* a;
     float *xCoords;
     float *yCoords;
     int coordCounter;
     float* coords;
-public:  
+public: 
+    //virtual ~Shape();
     virtual std::string getType() = 0;
     virtual float getArea() = 0;
     virtual float circumference() = 0;

@@ -3,7 +3,7 @@
 
 #include "Shape.h"
 class Point : public Shape{
-private:
+public:
     std::string type = "Point";
     float area = -1;
     float circum;
