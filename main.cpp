@@ -72,9 +72,19 @@ int main(){
     Polygon polygon1(coords, coordCounter);
     Polygon polygon2(coords2, coordCounter2);
 
+
     Polygon p3 = polygon1 + polygon2;
-    std::cout << "\nAREA p3: " << p3.getArea();
-    std::cout << p3;
+
+    for(int i = 0; i < coordCounter; i++){
+       std::cout << coords[i] << " "; 
+    }
+    std::cout << '\n';
+    for(int i = 0; i < coordCounter2; i++){
+       std::cout << coords2[i] << " "; 
+    }
+    
+    std::cout << '\n' << p3.getArea();
+   // std::cout << p3;
 
 
     delete[] coords;

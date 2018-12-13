@@ -172,7 +172,12 @@ Polygon Polygon::operator+(const Polygon& a){
 }
 
 std::ostream& operator<<(std::ostream& out, const Polygon& a){
-    out << '\n' << a.xCoords[0] << " " << *nyPoly.xCoords[0];
+    //got to fix this --
+    std::cout << '\n';
+    
+    for(int i = 0; i < a.coordCounter/2; i++){
+        out << a.xCoords[i] << " " << a.yCoords[i] << ", ";
+    }
     return out;
 }
 
