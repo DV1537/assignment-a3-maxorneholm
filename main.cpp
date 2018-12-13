@@ -9,20 +9,11 @@
 #include <sstream>
 
 int main(){
-    float kV = 0;
-    float deltaY = 0;
-    float deltaX = 0;
-    int kCalc = 0;
-    int xK = 0;
-    int yK = 1;
     float x = 0;
-    float x2 = 0;
     std::string line = "";
     std::string line2 = "";
     int coordCounter = 0;
     int coordCounter2 = 0;
-    bool isLine = false;
-    bool isPolygon = false;
 
     //Used for 3 decimal places
     std::cout.setf(std::ios::fixed,std::ios::floatfield);
@@ -82,10 +73,8 @@ int main(){
     for(int i = 0; i < coordCounter2; i++){
        std::cout << coords2[i] << " "; 
     }
-    
-    std::cout << '\n' << p3.getArea();
-   // std::cout << p3;
 
+    std::cout << '\n' << p3.getArea();
 
     delete[] coords;
     delete[] xCoords;
